@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>La trama financiera de la dictadura</title>
+<link rel="stylesheet" href="css/960.css" />
+<link rel="stylesheet" href="css/reset.css" />
+<link rel="stylesheet" href="css/style.css" />
+<link href='http://fonts.googleapis.com/css?family=Vollkorn:400italic,400' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+</head>
+<body>
+	<div class="container_12">
+		<div class="header">
+			<h1>Represión Financiera de la Dictadura</h1>
+		</div>
+		<div class="grid_10">
+			<div class="content expander">
+				<h4>Cómo lo hicimos</h4>
+				<p>
+					El equipo de investigación de la CNV construyó un dataset que identifica todas los empresarios y agentes de bolsa que fueron secuestrados por los grupos de tareas para quitarles empresas y bienes. Con el equipo de HHBA entendimos que la mejor forma de visualizar esta información era graficar el esfuerzo represivo de la dictadura para apropiarse de empresas y, para ello, nos valimos del <a href="http://bost.ocks.org/mike/sankey/" target="_blank">Diagrama Sankey</a> que permite mostrar el flujo y recorrido entre un punto y otro. Así, nuestro punto de partida era la estructura represiva (fuerza interviniente) que utilizaba un recurso x (represores) para secuestrar empresarios y agentes de bolsa (empresarios) que eran dueños de compañías que operaban en la city porteña (empresas).</br></br>
+					El gran problema es que el diagrama funciona asignando un valor de flujo que representa el tamaño de la conexión con el nodo siguiente. Como no existe aún un generador de Diagrama de Sankey (en realidad es un diagrama que no está pensado para el fin que lo estamos utilizando en esta oportunidad) tuvimos que reconstruir la tabla y repetir "n" veces las conexiones ya que algunos secuestradores actuaban en grupo, o también, empresarios que eran dueños de más de una empresa. Normalizada la información, descubrimos que la tabla no puede tener campos vacíos porque generaban referencias circulares (se apuntaban a sí mismos) que inutilizaban el diagrama. Una vez completados los campos, todo fue diferente y pudimos visualizar esta primera demo que permite ver la envergadura de la represión dirigida específicamente a los grupos financieros.
+				</p>
+				<div id="chart">
+				</div>
+				
+			</div>
+		</div>
+		<div class="grid_2">
+			<div class="sidebar">
+				<ul>
+					<li><span><a href="index.html">Inicio</a></span></li>
+					<li><span><a href="investigacion.html">Investigación CNV</a></span></li>
+					<li><a href="equipo.html">- Equipo</a></li>
+					<li><a href="informe.pdf">- Informe</a></li>
+					<li><span><a href="http://www.meetup.com/HacksHackersBA" target="_blank">HHBA</a></span></li>
+					<li><a href="http://d3viz.hackdash.org/" target="_blank">- Hackathón</a></li>
+					<li><a href="http://d3viz.hackdash.org/p/51708a3407602f0940001b2c" target="_blank">- Proyecto</a></li>
+					<li><a href="como.html">- Cómo lo hicimos</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="clear">
+		</div>
+	</div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script src="js/jquery.expander.min.js"></script>
+<script type="text/javascript">
+	$('div.expander').expander({
+	 	slicePoint:       1834,  // default is 100
+	    expandPrefix:     '', // default is '... '
+	    expandText:       ' Leer más', // default is 'read more'
+	    collapseTimer:    '', // re-collapses after 5 seconds; default is 0, so no re-collapsing
+	    userCollapseText: 'Leer menos'  // default is 'read less'
+	});
+</script>
+</body>
+</html>

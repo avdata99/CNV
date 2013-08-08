@@ -1,0 +1,11 @@
+.fixeddiv
+{position: fixed;
+top: 5px;
+left: 10px;
+background-color: #BBB;}
+
+.fixeddiv2
+{position: fixed;
+top: 50px;
+left: 10px;
+background-color: #BBB;}

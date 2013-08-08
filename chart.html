@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>La trama financiera de la dictadura</title>
+<link rel="stylesheet" href="styles.css" type="text/css" />
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/libs/d3.v3.js" ></script>
+<script type="text/javascript" src="js/libs/sankey.js" ></script>
+<script type="text/javascript" src="js/hacknodes.js" ></script>
+<link rel="stylesheet" href="css/hck.css" />
+<link href='http://fonts.googleapis.com/css?family=Vollkorn:400italic,400' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    
+    <div id="showd" class="fixeddiv2" style="display: none">
+        <div id='aportar' title='Vos podes colaborar'>
+            <div id="waiting" style="display: none">
+                <img src='imgs/loading.gif' />
+            </div>
+            
+            <div id='dlgcont'>
+                Queres aportar informacion sobre <b><span id="nameaportar"></span></b>?
+                <textarea id='aporte' rows='8' style='width: 400px'></textarea>
+                <br/><small>La informacion que aportes sera agregada a un repositorio 
+                de datos que complementa los canales formales de 
+                investigacion, y sera considerada por expertos de la CNV 
+                y la secretaria de Derechos Humanos de la Nacion
+                </small>
+            </div>
+        </div>
+    </div>
+                <div id="chart" style="margin-left: -167px">
+                </div>
+                <script type="text/javascript" src="js/dataset.js" ></script>
+                <script type="text/javascript" src="js/hack.js" ></script>
+
+</body>
+
+</html>
