@@ -53,10 +53,6 @@ function draw(dataset) {
     return d.source.name + " → " + d.target.name + "\n" + format(d.value);
   });
 
-  link.append("title")
-    .text("PRONADO QUE ES UN DESC<br/>");
-  
-
   var node = svg.append("g").selectAll(".node")
     .data(dataset.nodes)
     .enter().append("g")
@@ -98,7 +94,6 @@ function draw(dataset) {
     .attr("dy", ".35em")
     .attr("text-anchor", "end")
     .attr("transform", null)
-    
     .text(function(d) {
     return d.name;
   })
@@ -118,7 +113,7 @@ function draw(dataset) {
     {
     //console.log(d);    
     nodeToStr(d);
-    }
+}
   
   function clickline(d) 
     {
