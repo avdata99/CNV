@@ -33,11 +33,66 @@
             </div>
         </div>
     </div>
-                <div id="chart" style="margin-left: -167px">
-                </div>
-                <script type="text/javascript" src="js/dataset.js" ></script>
-                <script type="text/javascript" src="js/hack.js" ></script>
+    
+    <!--
+        CÓDIGO AGREGADO DESDE AQUÍ....
+    -->
+    <form method="GET" action="" id="form_filtro">
+        <select name="fuerza" id="fuerza_select" onchange="enviar_form_filtro(0);">
+            <option value="-1">[reestablecer fuerza]</option>
+            <!--FUERZAS-->
+            <option value="{ID}"{FSELECTED}>{NOMBRE}</option>
+            <!--FUERZAS-->
+        </select>
+        
+        <select name="represor" id="represor_select" onchange="enviar_form_filtro(1);">
+            <option value="-1">[reestablecer represor]</option>
+            <!--REPRESORES-->
+            <option value="{ID}"{FSELECTED}>{NOMBRE}</option>
+            <!--REPRESORES-->
+        </select>
+        
+        <select name="empresario" id="empresario_select" onchange="enviar_form_filtro(2);">
+            <option value="-1">[reestablecer empresario]</option>
+            <!--EMPRESARIOS-->
+            <option value="{ID}"{FSELECTED}>{NOMBRE}</option>
+            <!--EMPRESARIOS-->
+        </select>
+        
+        <select name="empresa" id="empresa_select" onchange="enviar_form_filtro(3);">
+            <option value="-1">[reestablecer empresa]</option>
+            <!--EMPRESAS-->
+            <option value="{ID}"{FSELECTED}>{NOMBRE}</option>
+            <!--EMPRESAS-->
+        </select>
+    </form>
+    <!--
+        FIN CÓDIGO AGREGADO.
+    -->
+    <div id="chart"></div>
+    <!--
+        CÓDIGO SUSTITUIDO
+        ANTERIOR: <script type="text/javascript" src="js/dataset.js" ></script>
+    -->
+    <script type="text/javascript" language="javascript">
+        {DATASET};
 
+        var altura = {ALTURA};
+
+        function enviar_form_filtro(indice) {
+            selects = document.getElementsByTagName('select');
+            for(i=0; i<selects.length; i++) {
+                if(i > indice) {
+                    selects[i].disabled = 'disabled';
+                }
+            }
+            document.getElementById('form_filtro').submit();
+        }
+    </script>
+    <!--
+        FIN CÓDIGO SUSTITUIDO.
+    -->
+    <script type="text/javascript" src="js/hack.js" ></script>
 </body>
 
 </html>
