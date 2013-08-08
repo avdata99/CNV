@@ -1,17 +1,17 @@
-Proyecto para el Open News Hackaton: Visualizaciones en D3.js
+Proyecto para el Open News Hackatón: Visualizaciones en D3.js
 
 Estadp: Alpha
 
 Basado en datos recolectados por : 
 	Oficina de Derechos Humanos memoria, verdad y justicia:
-	Maria Celeste Perosino, Bruno R. Napoli, Walter A. Bosisio.
+	María Celeste Perosino, Bruno R. Napoli, Walter A. Bosisio.
 
-	Responsable de la articulaciï¿½n institucional de la ODHMVJ:
+	Responsable de la articulación institucional de la ODHMVJ:
 	Dr. Pedro Biscay
 
 	Directorio
 	- Presidente: Lic. Alejandro Vanoli
-	- Vice-Presidente: Lic. Hernï¿½n Fardi
+	- Vice-Presidente: Lic. Hernán Fardi
 	- Director: Lic. Hector O. Helman
 
 Autores :
@@ -23,6 +23,6 @@ Autores :
 	Mariana Berruezo,
 	Luciana Calbosa,
 	Silvana Frederic,
-	Manuel Aristaran
+	Manuel Aristarán
 	
 Se uliliza el plugin sankey para hacer grafico de flujos
