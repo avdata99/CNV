@@ -16,11 +16,21 @@ if (!$resp->is_valid) {
 
 } else {
   // Your code here to handle a successful verification
-  $subject = "[CNV] " . $_POST['title'];
-  $message = $_POST['message'] . " - " . $_POST['contact'];
+  $subject = "[CNV] " . $_POST['name'];
+
+  $message = <<<MSG
+-- Mensaje --
+{$_POST['message']}
+
+-- Contacto --
+{$_POST['contact']}
+MSG;
+
   $mail_from = 'anon@cnv.hhba.info';
   $header = 'From: anónimo';
-  $to = 'dsilvani@gmail.com';
+
+  // FIXME definir dirección destino
+  $to = '{{DEFINIR}}';
 
   $mail_res = mail($to, $subject, $message, $header);
   if ($mail_res) {

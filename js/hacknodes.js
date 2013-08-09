@@ -29,25 +29,7 @@ function getTypeNode(nd)
 function showData(nombre) {
     $("#dlgcont").show();
     $("#waiting").hide();    
-    $("#nameaportar").html(nombre);
-
-    $("form#contact").submit(function(event) {
-      event.preventDefault();
-
-      $("#dlgcont").hide();
-      $("#waiting").show();
-
-      var msg = null;
-      $.post("contact.php", $(this).serialize(), function(res) {
-        console.log(res);
-        msg = "GRACIAS POR COLABORAR CON NOSOTROS!";
-      }).fail(function(res) {
-        msg = "Ocurrió un error al enviar el formulario: " + JSON.stringify(res);
-      }).always(function() {
-        $("#aportar").dialog("close");
-        alert(msg);
-      });
-    });
+    $("#nameaportar, input[name='name']").html(nombre);
 
     $("#aportar").dialog({
       modal: true,
@@ -59,3 +41,22 @@ function showData(nombre) {
       }
     });
 };
+
+function handleContactSubmit() {
+  $("form#contact").submit(function(event) {
+    event.preventDefault();
+
+    $("#dlgcont").hide();
+    $("#waiting").show();
+
+    var msg = null;
+    $.post("contact.php", $(this).serialize(), function(res) {
+      alert("¡Gracias por colaborar con nosotros!");
+    }).fail(function(res) {
+      alert("Error: " + res.responseText);
+      console.log(JSON.stringify(res));
+    }).always(function() {
+      $("#aportar").dialog("close");
+    });
+  });
+}
