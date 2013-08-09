@@ -23,15 +23,15 @@
             </div>
             
             <div id='dlgcont'>
-                Queres aportar informacion sobre <b><span id="nameaportar"></span></b>?
-                <textarea id='aporte' rows='8' style='width: 400px'></textarea>
-                <br/><input type="text" name="telefono" placeholder="tu telefono (opcional)" />
-                <br/><input type="text" name="email" placeholder="tu email (opcional)" />
-                <br/><small>La informacion que aportes sera agregada a un repositorio 
-                de datos que complementa los canales formales de 
-                investigacion, y sera considerada por expertos de la CNV 
-                y la secretaria de Derechos Humanos de la Nacion
-                </small>
+              <form id='contact' method="post" action="contact.php">
+                Querés aportar información sobre <b><span id="nameaportar"></span></b>?
+                <textarea id="aporte" name="message" rows="8" style="width: 400px"></textarea><br />
+                <input name="contact" type="text" placeholder="telefono o e-mail (opcional)" /><br />
+                <small>La información que aportes será agregada a un
+                  repositorio de datos que complementa los canales formales de
+                  investigación, y será considerada por expertos de la CNV y la
+                  secretaría de Derechos Humanos de la Nación</small>
+              </form>
             </div>
         </div>
     </div>

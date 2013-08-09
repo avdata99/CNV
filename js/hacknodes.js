@@ -26,28 +26,34 @@ function getTypeNode(nd)
     }
 
     
-function showData(nombre)
-    {
+function showData(nombre) {
     $("#dlgcont").show();
     $("#waiting").hide();    
     $("#nameaportar").html(nombre);
-    $("#aportar").dialog({modal: true
-                        , width: 450
-                        ,resizable: false,
-                        buttons:{enviar: enviarAporte,
-                                  cerrar: function() { $( this ).dialog( "close" );}}
-                        
-                        });
-    }
-    
-    enviarAporte = function(){
-        $("#dlgcont").hide();
-        $("#waiting").show();
-        setTimeout(function()
-            {
-            $("#aportar").dialog("close");
-            alert("GRACIAS POR COLABORAR CON NOSOTROS!");
-            }, 3000);
-            
-        };
-    
+
+    $("form#contact").submit(function(event) {
+      event.preventDefault();
+
+      $("#dlgcont").hide();
+      $("#waiting").show();
+
+      debugger;
+      $.post("contact.php", $(this).serialize(), function(res) {
+        alert("GRACIAS POR COLABORAR CON NOSOTROS!");
+      }).fail(function() {
+        alert("Ocurrió un error al enviar el formulario.");
+      }).always(function() {
+        $("#aportar").dialog("close");
+      });
+    });
+
+    $("#aportar").dialog({
+      modal: true,
+      width: 450,
+      resizable: false,
+      buttons: {
+        enviar: function() { $("form#contact").submit(); },
+        cerrar: function() { $( this ).dialog( "close" );}
+      }
+    });
+};
