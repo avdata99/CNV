@@ -37,13 +37,15 @@ function showData(nombre) {
       $("#dlgcont").hide();
       $("#waiting").show();
 
-      debugger;
+      var msg = null;
       $.post("contact.php", $(this).serialize(), function(res) {
-        alert("GRACIAS POR COLABORAR CON NOSOTROS!");
-      }).fail(function() {
-        alert("Ocurrió un error al enviar el formulario.");
+        console.log(res);
+        msg = "GRACIAS POR COLABORAR CON NOSOTROS!";
+      }).fail(function(res) {
+        msg = "Ocurrió un error al enviar el formulario: " + JSON.stringify(res);
       }).always(function() {
         $("#aportar").dialog("close");
+        alert(msg);
       });
     });
 
