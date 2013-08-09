@@ -11,8 +11,8 @@ $resp = recaptcha_check_answer ($privatekey,
 
 if (!$resp->is_valid) {
   // What happens when the CAPTCHA was entered incorrectly
+  echo "El reCAPTCHA no fue ingresado correctamente. Por favor, inténtelo de nuevo.";
   http_response_code(500);
-  die ("El reCAPTCHA no fue ingresado correctamente. Por favor, inténtelo de nuevo.");
 
 } else {
   // Your code here to handle a successful verification
@@ -36,8 +36,8 @@ MSG;
   if ($mail_res) {
     echo "ok";
   } else {
+    echo "Ocurrió un error al intentar enviar el formulario. Por favor, inténtelo de nuevo.";
     http_response_code(500);
-    die ("Ocurrió un error al intentar enviar el formulario. Por favor, inténtelo de nuevo.");
   }
 }
 ?>
