@@ -24,6 +24,9 @@ if (!$resp->is_valid) {
 
 -- Contacto --
 {$_POST['contact']}
+
+REMOTE_ADDR: {$_SERVER['REMOTE_ADDR']}
+HTTP_X_FORWARDED_FOR: {$_SERVER['HTTP_X_FORWARDED_FOR']}
 MSG;
 
   $mail_from = 'anon@cnv.hhba.info';
