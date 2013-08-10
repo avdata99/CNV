@@ -26,28 +26,40 @@ function getTypeNode(nd)
     }
 
     
-function showData(nombre)
-    {
+function showData(nombre) {
     $("#dlgcont").show();
     $("#waiting").hide();    
-    $("#nameaportar").html(nombre);
-    $("#aportar").dialog({modal: true
-                        , width: 450
-                        ,resizable: false,
-                        buttons:{enviar: enviarAporte,
-                                  cerrar: function() { $( this ).dialog( "close" );}}
-                        
-                        });
-    }
-    
-    enviarAporte = function(){
-        $("#dlgcont").hide();
-        $("#waiting").show();
-        setTimeout(function()
-            {
-            $("#aportar").dialog("close");
-            alert("GRACIAS POR COLABORAR CON NOSOTROS!");
-            }, 3000);
-            
-        };
-    
+    $("#nameaportar, input[name='name']").html(nombre);
+    Recaptcha.reload();
+
+    $("#aportar").dialog({
+      modal: true,
+      width: 450,
+      resizable: false,
+      buttons: {
+        enviar: function() { $("form#contact").submit(); },
+        cerrar: function() { $( this ).dialog( "close" );}
+      }
+    });
+};
+
+function handleContactSubmit() {
+  $("form#contact").submit(function(event) {
+    event.preventDefault();
+
+    $("#dlgcont").hide();
+    $("#waiting").show();
+
+    var msg = null;
+    $.post("contact.php", $(this).serialize(), function(res) {
+      $("#aportar").dialog("close");
+      alert("¡Gracias por colaborar con nosotros!");
+    }).fail(function(res) {
+      Recaptcha.reload();
+      $("#waiting").hide();
+      $("#dlgcont").show();
+      alert("Error: " + res.responseText);
+      console.log(JSON.stringify(res));
+    });
+  });
+}

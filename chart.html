@@ -23,15 +23,24 @@
             </div>
             
             <div id='dlgcont'>
-                Queres aportar informacion sobre <b><span id="nameaportar"></span></b>?
-                <textarea id='aporte' rows='8' style='width: 400px'></textarea>
-                <br/><input type="text" name="telefono" placeholder="tu telefono (opcional)" />
-                <br/><input type="text" name="email" placeholder="tu email (opcional)" />
-                <br/><small>La informacion que aportes sera agregada a un repositorio 
-                de datos que complementa los canales formales de 
-                investigacion, y sera considerada por expertos de la CNV 
-                y la secretaria de Derechos Humanos de la Nacion
-                </small>
+              <script type="text/javascript">
+                var RecaptchaOptions = {
+                  lang: 'es',
+                  theme: 'white'
+                };
+              </script>
+              <form id='contact' method="post" action="contact.php">
+                Querés aportar información sobre <b><span id="nameaportar"></span></b>?
+                <textarea id="aporte" name="message" rows="8" style="width: 400px"></textarea><br />
+                <input name="contact" type="text" style="width: 400px" placeholder="telefono o e-mail" /><br />
+                <small>La información que aportes será agregada a un
+                  repositorio de datos que complementa los canales formales de
+                  investigación, y será considerada por expertos de la CNV y la
+                  secretaría de Derechos Humanos de la Nación</small>
+                <input name="name" type="hidden" />
+                <div style="margin: 0.5em 0">{RECAPTCHA}</div>
+              </form>
+              <script type="text/javascript" language="javascript">handleContactSubmit();</script>
             </div>
         </div>
     </div>
@@ -41,28 +50,28 @@
     -->
     <form method="GET" action="" id="form_filtro">
         <select name="fuerza" id="fuerza_select" onchange="enviar_form_filtro(0);">
-            <option value="-1">[reestablecer fuerza]</option>
+            <option value="-1">[fuerza]</option>
             <!--FUERZAS-->
             <option value="{ID}"{FSELECTED}>{NOMBRE}</option>
             <!--FUERZAS-->
         </select>
         
         <select name="represor" id="represor_select" onchange="enviar_form_filtro(1);">
-            <option value="-1">[reestablecer represor]</option>
+            <option value="-1">[represor]</option>
             <!--REPRESORES-->
             <option value="{ID}"{FSELECTED}>{NOMBRE}</option>
             <!--REPRESORES-->
         </select>
         
         <select name="empresario" id="empresario_select" onchange="enviar_form_filtro(2);">
-            <option value="-1">[reestablecer empresario]</option>
+            <option value="-1">[empresario]</option>
             <!--EMPRESARIOS-->
             <option value="{ID}"{FSELECTED}>{NOMBRE}</option>
             <!--EMPRESARIOS-->
         </select>
         
         <select name="empresa" id="empresa_select" onchange="enviar_form_filtro(3);">
-            <option value="-1">[reestablecer empresa]</option>
+            <option value="-1">[empresa]</option>
             <!--EMPRESAS-->
             <option value="{ID}"{FSELECTED}>{NOMBRE}</option>
             <!--EMPRESAS-->

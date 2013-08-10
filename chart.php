@@ -211,5 +211,13 @@ $render_fuerzas = Template($basehtml)->render_regex('FUERZAS', $ds->fuerzas);
 $render_represores = Template($render_fuerzas)->render_regex('REPRESORES', $ds->represores);
 $render_empresarios = Template($render_represores)->render_regex('EMPRESARIOS', $ds->empresarios);
 $render_empresas = Template($render_empresarios)->render_regex('EMPRESAS', $ds->empresas);
-print $render_empresas;
+
+// Recaptcha
+require_once('recaptchalib.php');
+
+$recaptcha_publickey = '6LfC4eUSAAAAAAcVDXbwNKunHRntmRQLA5fsNoJL';
+$recaptcha_html = recaptcha_get_html($recaptcha_publickey);
+$render_recaptcha = Template($render_empresas)->render(array('RECAPTCHA' => $recaptcha_html));
+
+print $render_recaptcha;
 ?>
