@@ -9,3 +9,7 @@ background-color: #BBB;}
 top: 50px;
 left: 10px;
 background-color: #BBB;}
+
+.ui-dialog {
+  font-size: 85% !important;
+}

@@ -23,16 +23,22 @@
             </div>
             
             <div id='dlgcont'>
+              <script type="text/javascript">
+                var RecaptchaOptions = {
+                  lang: 'es',
+                  theme: 'white'
+                };
+              </script>
               <form id='contact' method="post" action="contact.php">
                 Querés aportar información sobre <b><span id="nameaportar"></span></b>?
                 <textarea id="aporte" name="message" rows="8" style="width: 400px"></textarea><br />
-                <input name="contact" type="text" placeholder="telefono o e-mail" /><br />
-                {RECAPTCHA}
+                <input name="contact" type="text" style="width: 400px" placeholder="telefono o e-mail" /><br />
                 <small>La información que aportes será agregada a un
                   repositorio de datos que complementa los canales formales de
                   investigación, y será considerada por expertos de la CNV y la
                   secretaría de Derechos Humanos de la Nación</small>
                 <input name="name" type="hidden" />
+                <div style="margin: 0.5em 0">{RECAPTCHA}</div>
               </form>
               <script type="text/javascript" language="javascript">handleContactSubmit();</script>
             </div>
