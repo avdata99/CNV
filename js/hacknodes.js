@@ -30,6 +30,7 @@ function showData(nombre) {
     $("#dlgcont").show();
     $("#waiting").hide();    
     $("#nameaportar, input[name='name']").html(nombre);
+    Recaptcha.reload();
 
     $("#aportar").dialog({
       modal: true,
