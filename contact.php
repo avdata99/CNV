@@ -30,7 +30,7 @@ HTTP_X_FORWARDED_FOR: {$_SERVER['HTTP_X_FORWARDED_FOR']}
 MSG;
 
   $mail_from = 'anon@cnv.hhba.info';
-  $header = 'From: anónimo';
+  $header = "From: {$_SERVER['REMOTE_ADDR']} {$_SERVER['HTTP_X_FORWARDED_FOR']}";
 
   // FIXME definir dirección destino
   $to = '{{DEFINIR}}';
