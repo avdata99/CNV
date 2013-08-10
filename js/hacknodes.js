@@ -52,12 +52,14 @@ function handleContactSubmit() {
 
     var msg = null;
     $.post("contact.php", $(this).serialize(), function(res) {
+      $("#aportar").dialog("close");
       alert("¡Gracias por colaborar con nosotros!");
     }).fail(function(res) {
+      Recaptcha.reload();
+      $("#waiting").hide();
+      $("#dlgcont").show();
       alert("Error: " + res.responseText);
       console.log(JSON.stringify(res));
-    }).always(function() {
-      $("#aportar").dialog("close");
     });
   });
 }
